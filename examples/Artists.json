@@ -1,0 +1,17 @@
+{
+  "createArtistInput": {
+    "name": "Metallica",
+    "albumIds": ["633dd4d3d47ed9a872432096"]
+  },
+
+  "getArtistId": "633ddc427fb6f567eabff736",
+
+  "updateArtistInput": {
+    "artistId": "633ddc427fb6f567eabff736",
+    "name": "Megadeth"
+  },
+
+  "deleteArtistInput": {
+    "artistId": ""
+  }
+}

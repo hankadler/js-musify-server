@@ -1,0 +1,53 @@
+query GetSongs {
+  songs {
+    _id
+    number
+    name
+  }
+}
+
+query GetSong($getSongId: ID!) {
+  song(songId: $getSongId) {
+    _id
+    number
+    name
+  }
+},
+
+mutation DeleteSongs {
+  deleteSongs {
+    acknowledged
+    deletedCount
+  }
+}
+
+mutation CreateSong($createSongInput: CreateSongInput!) {
+  createSong(input: $createSongInput) {
+    _id
+    number
+    name
+  }
+}
+
+mutation CreateSongError($createSongErrorInput: CreateSongInput!) {
+  createSong(input: $createSongErrorInput) {
+    _id
+    number
+    name
+  }
+}
+
+mutation UpdateSong($updateSongInput: UpdateSongInput!) {
+  updateSong(input: $updateSongInput) {
+    _id
+    number
+    name
+  }
+}
+
+mutation DeleteSong($deleteSongInput: DeleteSongInput!) {
+  deleteSong(input: $deleteSongInput) {
+    acknowledged
+    deletedCount
+  }
+}

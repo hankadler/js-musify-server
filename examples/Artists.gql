@@ -1,0 +1,88 @@
+query GetArtists {
+  artists {
+    _id
+    name
+    albumIds
+    albums {
+      _id
+      number
+      name
+      year
+      songs {
+        _id
+        number
+        name
+      }
+    }
+  }
+}
+
+query GetArtist($getArtistId: ID!) {
+  artist(artistId: $getArtistId) {
+    _id
+    name
+    albumIds
+    albums {
+      _id
+      number
+      name
+      year
+      songs {
+        _id
+        number
+        name
+      }
+    }
+  }
+}
+
+mutation DeleteArtists {
+  deleteArtists {
+    acknowledged
+    deletedCount
+  }
+}
+
+mutation CreateArtist($createArtistInput: CreateArtistInput!) {
+  createArtist(input: $createArtistInput) {
+    _id
+    name
+    albums {
+      _id
+      number
+      name
+      year
+      songs {
+        _id
+        number
+        name
+      }
+    }
+  }
+}
+
+mutation UpdateArtist($updateArtistInput: UpdateArtistInput!) {
+  updateArtist(input: $updateArtistInput) {
+    _id
+    name
+    albumIds
+    albums {
+      _id
+      number
+      name
+      year
+      songs {
+        _id
+        number
+        name
+      }
+    }
+  }
+}
+
+mutation DeleteArtist($deleteArtistInput: DeleteArtistInput!) {
+  deleteArtist(input: $deleteArtistInput) {
+    acknowledged
+    deletedCount
+  }
+}

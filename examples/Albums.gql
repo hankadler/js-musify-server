@@ -1,0 +1,73 @@
+query GetAlbums {
+  albums {
+    _id
+    number
+    name
+    year
+    songIds
+    songs {
+      _id
+      number
+      name
+    }
+  }
+}
+
+query GetAlbum($getAlbumId: ID!) {
+  album(albumId: $getAlbumId) {
+    _id
+    number
+    name
+    year
+    songIds
+    songs {
+      _id
+      number
+      name
+    }
+  }
+}
+
+mutation DeleteAlbums {
+  deleteAlbums {
+    acknowledged
+    deletedCount
+  }
+}
+
+mutation CreateAlbum($createAlbumInput: CreateAlbumInput!) {
+  createAlbum(input: $createAlbumInput) {
+    _id
+    number
+    name
+    year
+    songs {
+      _id
+      number
+      name
+    }
+  }
+}
+
+mutation UpdateAlbum($updateAlbumInput: UpdateAlbumInput!) {
+  updateAlbum(input: $updateAlbumInput) {
+    _id
+    number
+    name
+    year
+    songIds
+    songs {
+      _id
+      number
+      name
+    }
+  }
+}
+
+mutation DeleteAlbum($deleteAlbumInput: DeleteAlbumInput!) {
+  deleteAlbum(input: $deleteAlbumInput) {
+    acknowledged
+    deletedCount
+  }
+}
+

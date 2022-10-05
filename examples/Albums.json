@@ -1,0 +1,20 @@
+{
+  "createAlbumInput": {
+    "number": 3,
+    "year": 1986,
+    "name": "Master Of Puppets",
+    "songIds": ["633dd0ed895bae06d657660c", "633dd0f7895bae06d657660e"]
+  },
+
+  "getAlbumId": "633dd4d3d47ed9a872432096",
+
+  "updateAlbumInput": {
+    "albumId": "633dd4d3d47ed9a872432096",
+    "name": "Master Of Puppets",
+    "year": 1986
+  },
+
+  "deleteAlbumInput": {
+    "albumId": "633dd8ba451e1d3855d9a4db"
+  }
+}
