@@ -6,8 +6,8 @@ query GetSongs {
   }
 }
 
-query GetSong($getSongId: ID!) {
-  song(songId: $getSongId) {
+query GetSong($songId: ID!) {
+  song(songId: $songId) {
     _id
     number
     name

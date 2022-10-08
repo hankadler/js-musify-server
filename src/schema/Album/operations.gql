@@ -13,8 +13,8 @@ query GetAlbums {
   }
 }
 
-query GetAlbum($getAlbumId: ID!) {
-  album(albumId: $getAlbumId) {
+query GetAlbum($albumId: ID!) {
+  album(albumId: $albumId) {
     _id
     number
     name
@@ -51,6 +51,24 @@ mutation CreateAlbum($createAlbumInput: CreateAlbumInput!) {
 
 mutation UpdateAlbum($updateAlbumInput: UpdateAlbumInput!) {
   updateAlbum(input: $updateAlbumInput) {
+    _id
+    number
+    name
+    year
+    songIds
+    songs {
+      _id
+      number
+      name
+    }
+  }
+}
+
+mutation AddSongsToAlbum($albumId: ID!, $songIds: [ID!]!) {
+  addSongsToAlbum(input: {
+    albumId: $albumId
+    songIds: $songIds
+  }) {
     _id
     number
     name

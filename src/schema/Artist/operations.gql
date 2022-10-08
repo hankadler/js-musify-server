@@ -17,8 +17,8 @@ query GetArtists {
   }
 }
 
-query GetArtist($getArtistId: ID!) {
-  artist(artistId: $getArtistId) {
+query GetArtist($artistId: ID!) {
+  artist(artistId: $artistId) {
     _id
     name
     albumIds
@@ -84,5 +84,27 @@ mutation DeleteArtist($deleteArtistInput: DeleteArtistInput!) {
   deleteArtist(input: $deleteArtistInput) {
     acknowledged
     deletedCount
+  }
+}
+
+mutation AddAlbumsToArtist($artistId: ID!, $albumIds: [ID!]!) {
+  addAlbumsToArtist(input: {
+    artistId: $artistId
+    albumIds: $albumIds
+  }) {
+    _id
+    name
+    albumIds
+    albums {
+      _id
+      number
+      name
+      year
+      songs {
+        _id
+        number
+        name
+      }
+    }
   }
 }

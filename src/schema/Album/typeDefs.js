@@ -11,6 +11,7 @@ const typeDefs = gql`
     createAlbum(input: CreateAlbumInput!): Album
     updateAlbum(input: UpdateAlbumInput!): Album
     deleteAlbum(input: DeleteAlbumInput!): DeleteOutput!
+    addSongsToAlbum(input: AddSongsToAlbumInput!): Album
   }
  
   type Album {
@@ -39,6 +40,11 @@ const typeDefs = gql`
 
   input DeleteAlbumInput {
     albumId: ID!
+  }
+  
+  input AddSongsToAlbumInput {
+    albumId: ID!
+    songIds: [ID!]
   }
 `;
 

@@ -11,6 +11,7 @@ const typeDefs = gql`
     createArtist(input: CreateArtistInput!): Artist
     updateArtist(input: UpdateArtistInput!): Artist
     deleteArtist(input: DeleteArtistInput!): DeleteOutput!
+    addAlbumsToArtist(input: AddAlbumsToArtistInput!): Artist
   }
  
   type Artist {
@@ -33,6 +34,11 @@ const typeDefs = gql`
 
   input DeleteArtistInput {
     artistId: ID!
+  }
+  
+  input AddAlbumsToArtistInput {
+    artistId: ID!
+    albumIds: [ID!]
   }
 `;
 
