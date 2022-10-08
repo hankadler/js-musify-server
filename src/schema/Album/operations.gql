@@ -49,8 +49,8 @@ mutation CreateAlbum($createAlbumInput: CreateAlbumInput!) {
   }
 }
 
-mutation UpdateAlbum($updateAlbumInput: UpdateAlbumInput!) {
-  updateAlbum(input: $updateAlbumInput) {
+mutation UpdateAlbum($albumId: ID!, $updateAlbumInput: UpdateAlbumInput!) {
+  updateAlbum(albumId: $albumId, input: $updateAlbumInput) {
     _id
     number
     name
@@ -65,10 +65,7 @@ mutation UpdateAlbum($updateAlbumInput: UpdateAlbumInput!) {
 }
 
 mutation AddSongsToAlbum($albumId: ID!, $songIds: [ID!]!) {
-  addSongsToAlbum(input: {
-    albumId: $albumId
-    songIds: $songIds
-  }) {
+  addSongsToAlbum(albumId: $albumId, songIds: $songIds) {
     _id
     number
     name
@@ -82,8 +79,8 @@ mutation AddSongsToAlbum($albumId: ID!, $songIds: [ID!]!) {
   }
 }
 
-mutation DeleteAlbum($deleteAlbumInput: DeleteAlbumInput!) {
-  deleteAlbum(input: $deleteAlbumInput) {
+mutation DeleteAlbum($albumId: ID!) {
+  deleteAlbum(albumId: $albumId) {
     acknowledged
     deletedCount
   }

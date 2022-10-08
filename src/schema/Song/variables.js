@@ -14,14 +14,9 @@ const variables = {
   songIds: [],
 
   updateSongInput: {
-    songId: "",
     number: 2,
     name: "Master Of Puppets"
   },
-
-  deleteSongInput: {
-    songId: ""
-  }
 };
 
 export default variables;

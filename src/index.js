@@ -2,9 +2,8 @@ import Logger from "loguno";
 import { ApolloServer } from "apollo-server-express";
 import api from "./api";
 import db from "./db";
-import { typeDefs, resolvers, dataSources, variables } from "./schema";
+import { typeDefs, resolvers, context, dataSources } from "./schema";
 import config from "./config";
-import initVariables from "./utils/initVariables";
 
 Logger.outlets[0].colors.inverted = false;
 Logger.outlets[0].colors.bg.enabled = false;
@@ -15,17 +14,7 @@ const main = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: async ({ req }) => {
-      if (!config.env.startsWith("prod")) {
-        // set variables for operations (dev & test only)
-        req.body.variables = variables;
-        await initVariables(req);
-        return {
-          variables: req.body.variables
-        };
-      }
-      return null;
-    },
+    context,
     dataSources: () => ({ api: new dataSources.Musify() }),
   });
 

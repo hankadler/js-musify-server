@@ -61,8 +61,8 @@ mutation CreateArtist($createArtistInput: CreateArtistInput!) {
   }
 }
 
-mutation UpdateArtist($updateArtistInput: UpdateArtistInput!) {
-  updateArtist(input: $updateArtistInput) {
+mutation UpdateArtist($artistId: ID!, $updateArtistInput: UpdateArtistInput!) {
+  updateArtist(artistId: $artistId, input: $updateArtistInput) {
     _id
     name
     albumIds
@@ -80,18 +80,15 @@ mutation UpdateArtist($updateArtistInput: UpdateArtistInput!) {
   }
 }
 
-mutation DeleteArtist($deleteArtistInput: DeleteArtistInput!) {
-  deleteArtist(input: $deleteArtistInput) {
+mutation DeleteArtist($artistId: ID!) {
+  deleteArtist(artistId: $artistId) {
     acknowledged
     deletedCount
   }
 }
 
 mutation AddAlbumsToArtist($artistId: ID!, $albumIds: [ID!]!) {
-  addAlbumsToArtist(input: {
-    artistId: $artistId
-    albumIds: $albumIds
-  }) {
+  addAlbumsToArtist(artistId: $artistId, albumIds: $albumIds) {
     _id
     name
     albumIds

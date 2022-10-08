@@ -9,9 +9,9 @@ const typeDefs = gql`
   extend type Mutation {
     deleteAlbums: DeleteOutput!
     createAlbum(input: CreateAlbumInput!): Album
-    updateAlbum(input: UpdateAlbumInput!): Album
-    deleteAlbum(input: DeleteAlbumInput!): DeleteOutput!
-    addSongsToAlbum(input: AddSongsToAlbumInput!): Album
+    updateAlbum(albumId: ID!, input: UpdateAlbumInput!): Album
+    deleteAlbum(albumId: ID!): DeleteOutput!
+    addSongsToAlbum(albumId: ID!, songIds: [ID!]!): Album
   }
  
   type Album {
@@ -31,19 +31,9 @@ const typeDefs = gql`
   }
 
   input UpdateAlbumInput {
-    albumId: ID!
     number: Int
     name: String
     year: Int
-    songIds: [ID!]
-  }
-
-  input DeleteAlbumInput {
-    albumId: ID!
-  }
-  
-  input AddSongsToAlbumInput {
-    albumId: ID!
     songIds: [ID!]
   }
 `;

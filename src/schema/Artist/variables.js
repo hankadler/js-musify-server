@@ -9,13 +9,8 @@ const variables = {
   artistIds: [],
 
   updateArtistInput: {
-    artistId: "",
     name: "Megadeth"
   },
-
-  deleteArtistInput: {
-    artistId: ""
-  }
 };
 
 export default variables;

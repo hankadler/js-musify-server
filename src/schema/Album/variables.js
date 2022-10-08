@@ -11,13 +11,8 @@ const variables = {
   albumIds: [],
 
   updateAlbumInput: {
-    albumId: "",
     name: "Master Of Puppets",
     year: 1986
-  },
-
-  deleteAlbumInput: {
-    albumId: ""
   },
 };
 

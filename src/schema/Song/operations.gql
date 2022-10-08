@@ -37,16 +37,16 @@ mutation CreateSongError($createSongErrorInput: CreateSongInput!) {
   }
 }
 
-mutation UpdateSong($updateSongInput: UpdateSongInput!) {
-  updateSong(input: $updateSongInput) {
+mutation UpdateSong($songId: ID!, $updateSongInput: UpdateSongInput!) {
+  updateSong(songId: $songId, input: $updateSongInput) {
     _id
     number
     name
   }
 }
 
-mutation DeleteSong($deleteSongInput: DeleteSongInput!) {
-  deleteSong(input: $deleteSongInput) {
+mutation DeleteSong($songId: ID!) {
+  deleteSong(songId: $songId) {
     acknowledged
     deletedCount
   }

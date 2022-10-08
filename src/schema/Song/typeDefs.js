@@ -9,8 +9,8 @@ const typeDefs = gql`
   extend type Mutation {
     deleteSongs: DeleteOutput!
     createSong(input: CreateSongInput!): Song
-    updateSong(input: UpdateSongInput!): Song
-    deleteSong(input: DeleteSongInput!): DeleteOutput!
+    updateSong(songId: ID!, input: UpdateSongInput!): Song
+    deleteSong(songId: ID!): DeleteOutput!
   }
  
   type Song {
@@ -25,13 +25,8 @@ const typeDefs = gql`
   }
 
   input UpdateSongInput {
-    songId: ID!
     number: Int
     name: String
-  }
-
-  input DeleteSongInput {
-    songId: ID!
   }
 `;
 
